@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Club Trust Infinite | 100x Club Milestone</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            padding: 40px 0;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 300;
+            letter-spacing: 4px;
+            color: #d4af37;
+            text-transform: uppercase;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 60px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at center, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
+            animation: pulse 8s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+        }
+
+        .milestone {
+            font-size: 18px;
+            color: #d4af37;
+            letter-spacing: 3px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            animation: fadeIn 1s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h1 {
+            font-size: 72px;
+            font-weight: 300;
+            margin-bottom: 30px;
+            letter-spacing: 8px;
+            line-height: 1.2;
+            animation: fadeIn 1s ease-out 0.3s backwards;
+        }
+
+        .subtitle {
+            font-size: 24px;
+            color: #b8b8b8;
+            max-width: 800px;
+            margin: 0 auto 50px;
+            line-height: 1.6;
+            font-weight: 300;
+            animation: fadeIn 1s ease-out 0.6s backwards;
+        }
+
+        /* Card Display */
+        .card-section {
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .card-container {
+            max-width: 600px;
+            margin: 0 auto;
+            perspective: 1000px;
+        }
+
+        .card-image {
+            width: 100%;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+            transition: transform 0.6s ease;
+        }
+
+        .card-image:hover {
+            transform: rotateY(10deg) rotateX(5deg) scale(1.05);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 100px 0;
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        .features h2 {
+            text-align: center;
+            font-size: 48px;
+            font-weight: 300;
+            margin-bottom: 80px;
+            letter-spacing: 4px;
+            color: #d4af37;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
+        }
+
+        .feature {
+            text-align: center;
+            padding: 40px 30px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 15px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .feature:hover {
+            background: rgba(212, 175, 55, 0.1);
+            border-color: rgba(212, 175, 55, 0.5);
+            transform: translateY(-10px);
+        }
+
+        .feature-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .feature h3 {
+            font-size: 24px;
+            font-weight: 300;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+            color: #d4af37;
+        }
+
+        .feature p {
+            font-size: 16px;
+            color: #b8b8b8;
+            line-height: 1.8;
+        }
+
+        /* Pricing Section */
+        .pricing {
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .price-card {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 60px 40px;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(0, 0, 0, 0.3) 100%);
+            border-radius: 20px;
+            border: 2px solid #d4af37;
+        }
+
+        .price-label {
+            font-size: 18px;
+            color: #d4af37;
+            letter-spacing: 3px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .price {
+            font-size: 72px;
+            font-weight: 300;
+            margin-bottom: 10px;
+            color: #ffffff;
+        }
+
+        .price-subtitle {
+            font-size: 16px;
+            color: #b8b8b8;
+            margin-bottom: 40px;
+        }
+
+        .infinity-symbol {
+            font-size: 64px;
+            color: #d4af37;
+            margin: 30px 0;
+        }
+
+        /* Waitlist Form */
+        .waitlist {
+            padding: 100px 0;
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        .waitlist h2 {
+            text-align: center;
+            font-size: 48px;
+            font-weight: 300;
+            margin-bottom: 20px;
+            letter-spacing: 4px;
+            color: #d4af37;
+        }
+
+        .waitlist-subtitle {
+            text-align: center;
+            font-size: 18px;
+            color: #b8b8b8;
+            margin-bottom: 60px;
+        }
+
+        .form-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 30px;
+        }
+
+        input {
+            width: 100%;
+            padding: 20px 30px;
+            font-size: 18px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 10px;
+            color: #ffffff;
+            font-family: 'Georgia', serif;
+            transition: all 0.3s ease;
+        }
+
+        input::placeholder {
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #d4af37;
+            background: rgba(255, 255, 255, 0.08);
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
+        }
+
+        button {
+            width: 100%;
+            padding: 22px 40px;
+            font-size: 20px;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            background: #d4af37;
+            color: #000000;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Georgia', serif;
+        }
+
+        button:hover {
+            background: #f0c75e;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4);
+        }
+
+        button:active {
+            transform: translateY(-1px);
+        }
+
+        /* Footer */
+        footer {
+            padding: 60px 0;
+            text-align: center;
+            border-top: 1px solid rgba(212, 175, 55, 0.3);
+        }
+
+        .footer-text {
+            font-size: 14px;
+            color: #888;
+            letter-spacing: 2px;
+        }
+
+        .tagline {
+            font-size: 18px;
+            color: #d4af37;
+            margin-bottom: 10px;
+            font-style: italic;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 42px;
+                letter-spacing: 4px;
+            }
+
+            .subtitle {
+                font-size: 18px;
+            }
+
+            .features h2, .waitlist h2 {
+                font-size: 36px;
+            }
+
+            .price {
+                font-size: 52px;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animation for scroll */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(40px);
+            animation: fadeInUp 1s ease-out forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">Club Trust</div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <div class="milestone">Celebrating 100 Members Strong</div>
+            <h1>CLUB TRUST<br>INFINITE</h1>
+            <p class="subtitle">A private card that symbolizes growth, loyalty, and power. Reserved for those who understand the value of exclusive access and unlimited potential.</p>
+        </div>
+    </section>
+
+    <section class="card-section">
+        <div class="card-container">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 500'%3E%3Crect width='800' height='500' fill='%231a1a1a' rx='30'/%3E%3Ctext x='80' y='150' font-family='Georgia' font-size='72' fill='%23d4af37' font-weight='300'%3E100x%3C/text%3E%3Ctext x='480' y='130' font-family='Georgia' font-size='48' fill='%23d4af37' text-anchor='end'%3ECLUB%3C/text%3E%3Ctext x='480' y='190' font-family='Georgia' font-size='48' fill='%23d4af37' text-anchor='end'%3ETRUST%3C/text%3E%3Ctext x='80' y='220' font-family='Arial' font-size='64' fill='%23d4af37'%3E∞%3C/text%3E%3Cline x1='100' y1='350' x2='600' y2='300' stroke='%23d4af37' stroke-width='2'/%3E%3Ccircle cx='680' cy='400' r='50' fill='none' stroke='%23d4af37' stroke-width='2'/%3E%3Ctext x='680' y='410' font-family='Georgia' font-size='36' fill='%23d4af37' text-anchor='middle'%3ECT%3C/text%3E%3C/svg%3E" alt="Club Trust Infinite Card" class="card-image">
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="container">
+            <h2>Exclusive Benefits</h2>
+            <div class="features-grid">
+                <div class="feature">
+                    <div class="feature-icon">🎓</div>
+                    <h3>Advanced Mentorship</h3>
+                    <p>Direct access to industry leaders and experienced mentors who have achieved 100x growth and beyond.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">💼</div>
+                    <h3>Hedge Fund Participation</h3>
+                    <p>Exclusive opportunities to participate in private hedge fund investments reserved for Club Trust members.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">∞</div>
+                    <h3>No Spending Limit</h3>
+                    <p>Infinite potential with no restrictions. Only respect and balance to protect our exclusive circle.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🌐</div>
+                    <h3>Network Effect</h3>
+                    <p>Connect with 100+ members who have achieved extraordinary success and are committed to collective growth.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Private Community</h3>
+                    <p>Join an intimate circle of high-performers in an environment built on trust, discretion, and mutual elevation.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">📈</div>
+                    <h3>Grow Together</h3>
+                    <p>We grow, you grow with us. Your success is our success in this symbiotic ecosystem of excellence.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="pricing">
+        <div class="container">
+            <div class="price-card">
+                <div class="price-label">Launch Price</div>
+                <div class="price">$300</div>
+                <div class="price-subtitle">One-time investment</div>
+                <div class="infinity-symbol">∞</div>
+                <p style="color: #d4af37; font-size: 18px; font-style: italic;">Unlimited potential. Infinite possibilities.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="waitlist">
+        <div class="container">
+            <h2>Join The Waiting List</h2>
+            <p class="waitlist-subtitle">Secure your spot and become part of the 100x Club Trust legacy.</p>
+            <div class="form-container">
+                <form action="https://formspree.io/f/xrbojlpn" method="POST">
+                    <div class="form-group">
+                        <input type="text" name="name" placeholder="Full Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" name="email" placeholder="Email Address" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" name="phone" placeholder="Phone Number (Optional)">
+                    </div>
+                    <input type="hidden" name="_subject" value="New Club Trust Infinite Waitlist Signup">
+                    <button type="submit">Sign Up</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p class="tagline">We grow, you grow with us.</p>
+            <p class="footer-text">CLUB TRUST INFINITE © 2025</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 1s ease-out forwards';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.feature, .price-card').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Parallax effect for hero
+        window.addEventListener('scroll', function() {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero-content');
+            if (hero) {
+                hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+                hero.style.opacity = 1 - (scrolled * 0.002);
+            }
+        });
+    </script>
+</body>
+</html>
